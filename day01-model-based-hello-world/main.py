@@ -1,26 +1,28 @@
-import json
+﻿import json
 import os
 
 DATA_FILE = "memory.json"
 
 def load_memory():
-	"""Load memory from a JSON file, or return an empty dictionary if the file does not exist."""
-	if os.path.exists(DATA_FILE):
-		with open(DATA_FILE, 'r') as file:
-			return json.load(file)
-	return {}
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    return {}
 
 def save_memory(memory):
-	"""Save memory to a JSON file."""
-	with open(DATA_FILE, 'w') as file:
-		json.dump(memory, file, indent=4)
+    with open(DATA_FILE, "w") as f:
+        json.dump(memory, f)
 
-def get_greeting(name):
-	"""Generate a greeting for the given name, using memory to remember past greetings."""
-	memory = load_memory()
-	if name in memory:
-		return f"Welcome back, {name}! I remember you."
-	else:
-		memory[name] = True  # Remember this name
-		save_memory(memory)
-		return f"Hello, {name}! Nice to meet you for the first time."
+def reflex_greeting():
+    memory = load_memory()
+    name = input("👋 What's your name? ").strip()
+
+    if name in memory:
+        print(f"Hello again, {name}! Welcome back.")
+    else:
+        print(f"Nice to meet you, {name}!")
+        memory[name] = {"visits": 1}
+        save_memory(memory)
+
+if __name__ == "__main__":
+    reflex_greeting()
