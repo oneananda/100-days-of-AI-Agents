@@ -1,0 +1,18 @@
+{
+  "learn python": {
+    "goal": "Learn Python",
+    "action": "Start with an online tutorial or coding platform like Replit or Codecademy."
+  },
+  "get fit": {
+    "goal": "Get Fit",
+    "action": "Begin with a daily 20-minute walk and track your steps with a fitness app."
+  },
+  "start a business": {
+    "goal": "Start a Business",
+    "action": "Write down your idea and create a one-page business plan."
+  },
+  "build a portfolio": {
+    "goal": "Build a Portfolio",
+    "action": "Create a GitHub repo and start adding your projects."
+  }
+}
